@@ -11,27 +11,31 @@
 			<h1>SMASH FACES</h1>
 			<p>Bienvenidas al juego de Smash Faces, tu misión es poder indentificar a todas tus compañeras de clase ingresando para ellos su nombre. Tienes 5 oportunidades antes de perder 1 punto y pasar a la siguiente</p>
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-sm-6">
 					<h3>Elige tu sede:</h3>
-					<select name="sedes">
-						<option value="peru">Perú-Lima</option>
-						<option value="mexico">México</option>
+					<select name="sedes" id="sede_seleccionada">
+						<option value="nulo">-</option>
+						<option value="peru" id="peru">Perú-Lima</option>
+						<option value="mexico" id="mexico">México</option>
 					</select>
 				</div>
-				<div class="col-md-6">
+				<div class="col-sm-6">
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 foto-box">
+				<div class="col-sm-6" id="foto-box">
 					
 				</div>
-				<div class="col-md-6">
+				<div class="col-sm-6">
 					<h4>Ingresa su nombre</h4>
-					<input type="text">
+					<input type="text" id="name_coder_ingresado">
 					<button type="button">Comprobar</button>
 				</div>
 			</div>
 		</div>
+		<script src="js/peru.js"></script>
+		<script src="js/mexico.js"></script>
 		<script src="js/main.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	</body>
 </html>
