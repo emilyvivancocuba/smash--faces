@@ -1,11 +1,10 @@
 /* Inserta tu código aqui */
-function aleatorio(min,max){
-   	var num_aleatorio=parseInt(min) + Math.round(Math.random() * (max-min));
-   	return num_aleatorio;
-}
 function aparecer_imagen(){
 	img=document.createElement('img');
-	alea=aleatorio(0, (pais.length)-1);
+	indice = Math.floor(Math.random()*num.length);
+	number = num[indice];
+	num.splice(indice, 1);
+	alea=number;
 	foto_coder=pais[alea].image;
 	name_coder=pais[alea].name;
     img.setAttribute('src', 'fotos/'+name_pais+'/'+foto_coder);
@@ -14,6 +13,7 @@ function aparecer_imagen(){
     document.getElementById('foto-box').appendChild(img);
 }
 function seleccionar_pais(){
+
 	var sede_valor=sede_seleccionada.options[sede_seleccionada.selectedIndex].textContent;
 	if (sede_valor==='Perú-Lima') {
 		pais=peru;
@@ -22,22 +22,14 @@ function seleccionar_pais(){
 		pais=mexico;
 		name_pais='mexico';
 	}
+	for (j=0; j<=pais.length; j++) {
+		num.push(j);
+	}
 	img=document.createElement('img');
-	// if (num_almacenados.length<1) {
-	// 	alea=aleatorio(0, (pais.length)-1);
-	// 	num_almacenados.push(alea);
-	// }else if (num_almacenados.length===pais.length) {
-	// 	alea=pais.length+1;
-	// }else{
-	// 	for (var i = 0; i < num_almacenados.length; i++) {
-	// 		alea=aleatorio(0, (pais.length)-1);
-	// 		if (num_almacenados[i]===alea) {
-				
-	// 		}
-	// 	}
-	// }
-
-
+	indice = Math.floor(Math.random()*num.length);
+	number = num[indice];
+	num.splice(indice, 1);
+	alea=number;
 	foto_coder=pais[alea].image;
 	name_coder=pais[alea].name;
     img.setAttribute('src', 'fotos/'+name_pais+'/'+foto_coder);
@@ -69,27 +61,23 @@ function comprobacion(){
 			aparecer_imagen();
 		}
 	}
+	console.log(num);
+	console.log(indice);
+	console.log(number);
 }
-var name_coder, name_pais, pais, alea, respuesta, puntaje, i, j, foto_coder, img, peru, mexico, num_almacenados;
+var name_coder, name_pais, pais, alea, respuesta, puntaje, i, j, foto_coder, img, peru, mexico, num_almacenados, indice, number;
 puntaje=0;
 i=0;
 j=0;
 num_almacenados=[];
+var num=[];
+
 var sede_seleccionada = document.getElementById('sede_seleccionada');
 sede_seleccionada.addEventListener('change', seleccionar_pais);
 var boton=document.getElementById('boton');
 boton.addEventListener('click', comprobacion);
-
-
-
-
-
-
-var alea=aleatorio(0, (pais.length)-1);
-for (var i = 0; i < num_almacenados.length; i++) {
-	if (num_almacenados[i]===alea) {
-		for (var i = 0; i < num_almacenados.length; i++) {
-			num_almacenados[i];
-		}
+if (num===[]) {
+		$(".foto_chicacoder").remove();
+		respuesta.innerHTML='Tus puntos totales son: '+puntaje;
+		boton.setAttribute('disabled', false);
 	}
-}
